@@ -1,6 +1,7 @@
 # Meow Map
 
 ## ❓ What is Meow Map?
+![map](https://github.com/user-attachments/assets/9d7b197a-0c37-4eee-b45e-4e04e23d437f)
 Meow Map is a Minecraft 1.8.9 Forge mod designed to assist players in Hypixel Skyblock Dungeons by rendering the map and essential information on the screen during gameplay.  
 This mod is integrated with the [Silence Utils](https://github.com/SILENCE-SIMSOOL/SilenceUtils-Documentation) mod and can also be controlled through Silence Utils.  
 
