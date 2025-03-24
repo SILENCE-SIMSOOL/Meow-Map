@@ -4,7 +4,6 @@ import net.minecraft.init.Blocks
 import net.minecraft.util.BlockPos
 import silence.simsool.meowmap.MeowMap.mc
 import silence.simsool.meowmap.core.types.*
-import silence.simsool.meowmap.features.DungeonScan.scan
 import silence.simsool.meowmap.utils.Location.dungeonFloor
 import silence.simsool.meowmap.utils.Utils.equalsOneOf
 
@@ -47,7 +46,6 @@ object DungeonScan {
                         MapUpdate.roomAdded = true
                     }
                     Dungeon.Info.dungeonList[z * 11 + x] = it
-                    MapRenderList.renderUpdated = true
                 }
             }
         }

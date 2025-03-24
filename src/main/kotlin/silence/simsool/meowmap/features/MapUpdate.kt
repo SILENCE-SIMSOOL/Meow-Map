@@ -109,14 +109,12 @@ object MapUpdate {
                 val mapTile = map.getTile(x, z)
 
                 if (room is Unknown) {
-                    MapRenderList.renderUpdated = true
                     roomAdded = true
                     Dungeon.Info.dungeonList[z * 11 + x] = mapTile
                     continue
                 }
 
                 if (mapTile.state.ordinal < room.state.ordinal) {
-                    MapRenderList.renderUpdated = true
                     PlayerTracker.roomStateChange(room, room.state, mapTile.state)
                     if (room is Room && room.data.type == RoomType.BLOOD && mapTile.state == RoomState.GREEN) {
                         RunInformation.bloodDone = true
@@ -126,14 +124,12 @@ object MapUpdate {
 
                 if (mapTile is Room && room is Room) {
                     if (room.data.type != mapTile.data.type && mapTile.data.type != RoomType.NORMAL) {
-                        MapRenderList.renderUpdated = true
                         room.data.type = mapTile.data.type
                     }
                 }
 
                 if (mapTile is Door && room is Door) {
                     if (mapTile.type == DoorType.WITHER && room.type != DoorType.WITHER) {
-                        MapRenderList.renderUpdated = true
                         room.type = mapTile.type
                     }
                 }
@@ -141,7 +137,6 @@ object MapUpdate {
                 if (room is Door && room.type.equalsOneOf(DoorType.ENTRANCE, DoorType.WITHER, DoorType.BLOOD)) {
                     if (mapTile is Door && mapTile.type == DoorType.WITHER) {
                         if (room.opened) {
-                            MapRenderList.renderUpdated = true
                             room.opened = false
                         }
                     } else if (!room.opened && mc.theWorld.getChunkFromChunkCoords(
@@ -150,7 +145,6 @@ object MapUpdate {
                         ).isLoaded &&
                         mc.theWorld.getBlockState(BlockPos(room.x, 69, room.z)).block == Blocks.air
                     ) {
-                        MapRenderList.renderUpdated = true
                         room.opened = true
                     }
 

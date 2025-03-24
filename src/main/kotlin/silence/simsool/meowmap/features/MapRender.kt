@@ -20,7 +20,6 @@ import java.awt.Color
 object MapRender {
     var dynamicRotation = 0f
         set(value) {
-            if (field != value) MapRenderList.renderUpdated = true
             field = value
         }
     fun renderMap() {

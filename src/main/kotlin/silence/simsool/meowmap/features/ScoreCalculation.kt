@@ -1,7 +1,6 @@
 package silence.simsool.meowmap.features
 
 import gg.essential.universal.UChat
-import silence.simsool.meowmap.MeowMap
 import silence.simsool.meowmap.MeowMap.mc
 import silence.simsool.meowmap.config.Config
 import silence.simsool.meowmap.features.RunInformation.completedRoomsPercentage
@@ -10,7 +9,6 @@ import silence.simsool.meowmap.features.RunInformation.secretPercentage
 import silence.simsool.meowmap.ui.GuiRenderer
 import silence.simsool.meowmap.utils.APIUtils
 import silence.simsool.meowmap.utils.Location
-import silence.simsool.meowmap.utils.Utils
 import kotlin.math.roundToInt
 import kotlin.time.DurationUnit
 import kotlin.time.toDuration
@@ -32,10 +30,10 @@ object ScoreCalculation {
             }
             if (Config.scoreTitle != 0) {
                 mc.thePlayer.playSound("random.orb", 1f, 0.5.toFloat())
-                GuiRenderer.displayTitle(Config.message300, 40)
+                GuiRenderer.displayTitle("§c§l" + Config.message300, 40)
             }
             if (Config.timeTo300) {
-                UChat.chat(MeowMap.CHAT_PREFIX + " §f300 Score: §a${RunInformation.timeElapsed.toDuration(DurationUnit.SECONDS)}")
+                UChat.chat("\n§5[§fSILENCE§5] §fS+ Clear: §d${RunInformation.timeElapsed.toDuration(DurationUnit.SECONDS)}")
             }
         } else if (score >= 270 && !message270) {
             message270 = true
@@ -44,7 +42,7 @@ object ScoreCalculation {
             }
             if (Config.scoreTitle == 2) {
                 mc.thePlayer.playSound("random.orb", 1f, 0.5.toFloat())
-                GuiRenderer.displayTitle(Config.message270, 40)
+                GuiRenderer.displayTitle("§c§l" + Config.message270, 40)
             }
         }
     }

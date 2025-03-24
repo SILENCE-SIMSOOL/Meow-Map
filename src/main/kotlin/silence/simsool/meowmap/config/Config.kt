@@ -100,9 +100,6 @@ object Config : Vigilant(File("./config/SilenceUtils/MeowMap/config.toml"), Meow
     )
     var mapVanillaMarker = true
 
-
-
-
     @Property(
         name = "Map X",
         type = PropertyType.NUMBER,
@@ -120,9 +117,6 @@ object Config : Vigilant(File("./config/SilenceUtils/MeowMap/config.toml"), Meow
         hidden = true
     )
     var mapY = 10
-
-
-
 
     @Property(
         name = "Map Scale",
@@ -169,7 +163,6 @@ object Config : Vigilant(File("./config/SilenceUtils/MeowMap/config.toml"), Meow
     )
     var playerNameScale = .8f
 
-
     @Property(
         name = "Map Background Color",
         type = PropertyType.COLOR,
@@ -196,7 +189,6 @@ object Config : Vigilant(File("./config/SilenceUtils/MeowMap/config.toml"), Meow
         maxF = 10f
     )
     var mapBorderWidth = 0f
-
 
     @Property(
         name = "Show Room Name",
@@ -255,37 +247,7 @@ object Config : Vigilant(File("./config/SilenceUtils/MeowMap/config.toml"), Meow
     )
     var mapCenterCheckmark = false
 
-
-
-
-
-// COLOR - CATEGORY
-
-    var colorBloodDoor = Color(231, 0, 0)
-    var colorEntranceDoor = Color(114, 67, 27)
-    var colorRoomDoor = Color(114, 67, 27)
-    var colorWitherDoor = Color(0, 0, 0)
-    var colorOpenWitherDoor = Color(114, 67, 27)
-    var colorUnopenedDoor = Color(65, 65, 65)
-
-    var colorBlood = Color(255, 0, 0)
-    var colorEntrance = Color(0, 130, 0)
-    var colorFairy = Color(239, 126, 163)
-    var colorMiniboss = Color(226, 226, 50)
-    var colorRoom = Color(114, 67, 27)
-    var colorPuzzle = Color(176, 75, 213)
-    var colorRare = Color(255, 203, 89)
-    var colorTrap = Color(213, 126, 50)
-    var colorUnopened = Color(64, 64, 64)
-
-    var colorTextCleared = Color(220, 220, 220)
-    var colorTextUncleared = Color(155, 155, 155)
-    var colorTextGreen = Color(15, 135, 15)
-    var colorTextFailed = Color(220, 220, 220)
-
-
-
-    // SCORE - CATEGORY
+// SCORE - CATEGORY
     @Property(
         name = "Display Score Status",
         type = PropertyType.SWITCH,
@@ -575,6 +537,29 @@ object Config : Vigilant(File("./config/SilenceUtils/MeowMap/config.toml"), Meow
         subcategory = "Paul"
     )
     var paulBonus = false
+
+// COLOR - CATEGORY
+    var colorBloodDoor = Color(231, 0, 0)
+    var colorEntranceDoor = Color(114, 67, 27)
+    var colorRoomDoor = Color(114, 67, 27)
+    var colorWitherDoor = Color(0, 0, 0)
+    var colorOpenWitherDoor = Color(114, 67, 27)
+    var colorUnopenedDoor = Color(65, 65, 65)
+
+    var colorBlood = Color(255, 0, 0)
+    var colorEntrance = Color(0, 130, 0)
+    var colorFairy = Color(239, 126, 163)
+    var colorMiniboss = Color(226, 226, 50)
+    var colorRoom = Color(114, 67, 27)
+    var colorPuzzle = Color(176, 75, 213)
+    var colorRare = Color(255, 203, 89)
+    var colorTrap = Color(213, 126, 50)
+    var colorUnopened = Color(64, 64, 64)
+
+    var colorTextCleared = Color(220, 220, 220)
+    var colorTextUncleared = Color(155, 155, 155)
+    var colorTextGreen = Color(15, 135, 15)
+    var colorTextFailed = Color(220, 220, 220)
 
     init {
         initialize()

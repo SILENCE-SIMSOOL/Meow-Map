@@ -9,9 +9,7 @@ import net.minecraft.util.BlockPos
 import net.minecraft.util.ResourceLocation
 import silence.simsool.meowmap.MeowMap.mc
 import silence.simsool.meowmap.core.RoomData
-import silence.simsool.meowmap.core.types.Room
 import silence.simsool.meowmap.utils.Utils.equalsOneOf
-import kotlin.math.roundToInt
 
 object ScanUtils {
     val roomList: Set<RoomData> = try {

@@ -1,21 +1,15 @@
 package silence.simsool.meowmap.features
 
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
 import net.minecraft.event.HoverEvent
 import net.minecraft.util.ChatComponentText
 import net.minecraft.util.ChatStyle
 import net.minecraft.util.IChatComponent
-import silence.simsool.meowmap.MeowMap.mc
-import silence.simsool.meowmap.MeowMap.scope
 import silence.simsool.meowmap.core.DungeonPlayer
 import silence.simsool.meowmap.core.RoomData
 import silence.simsool.meowmap.core.types.Room
 import silence.simsool.meowmap.core.types.RoomState
 import silence.simsool.meowmap.core.types.RoomType
 import silence.simsool.meowmap.core.types.Tile
-import silence.simsool.meowmap.utils.APIUtils
 import silence.simsool.meowmap.utils.Utils.equalsOneOf
 import kotlin.time.Duration.Companion.milliseconds
 

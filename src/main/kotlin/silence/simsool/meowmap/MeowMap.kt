@@ -1,11 +1,9 @@
 package silence.simsool.meowmap
 
-import gg.essential.vigilance.gui.SettingsGui
 import kotlinx.coroutines.CoroutineScope
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen
 import net.minecraftforge.client.ClientCommandHandler
-import net.minecraftforge.client.event.GuiOpenEvent
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
@@ -15,7 +13,6 @@ import silence.simsool.meowmap.commands.Help
 import silence.simsool.meowmap.config.Config
 import silence.simsool.meowmap.features.BoxWitherDoor
 import silence.simsool.meowmap.features.Dungeon
-import silence.simsool.meowmap.features.MapRenderList
 import silence.simsool.meowmap.features.RunInformation
 import silence.simsool.meowmap.ui.GuiRenderer
 import silence.simsool.meowmap.utils.Location
@@ -59,13 +56,6 @@ object MeowMap {
         Dungeon.onTick()
         GuiRenderer.onTick()
         Location.onTick()
-    }
-
-    @SubscribeEvent
-    fun onGuiClose(event: GuiOpenEvent) {
-        if (event.gui == null && mc.currentScreen is SettingsGui) {
-            MapRenderList.renderUpdated = true
-        }
     }
 
     fun openConfig() {

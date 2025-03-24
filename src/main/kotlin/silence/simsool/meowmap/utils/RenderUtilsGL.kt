@@ -1,6 +1,5 @@
 package silence.simsool.meowmap.utils
 
-import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.client.renderer.Tessellator
 import net.minecraft.client.renderer.WorldRenderer
 import net.minecraft.client.renderer.texture.SimpleTexture
@@ -11,7 +10,6 @@ import org.lwjgl.opengl.GL11.GL_QUADS
 import silence.simsool.meowmap.MeowMap.mc
 import silence.simsool.meowmap.config.Config
 import silence.simsool.meowmap.core.types.RoomState
-import silence.simsool.meowmap.features.MapRender
 import java.awt.Color
 
 object RenderUtilsGL {

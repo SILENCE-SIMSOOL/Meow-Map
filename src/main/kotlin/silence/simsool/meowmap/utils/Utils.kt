@@ -1,9 +1,7 @@
 package silence.simsool.meowmap.utils
 
-import gg.essential.universal.UChat
 import net.minecraft.item.ItemStack
 import net.minecraft.util.StringUtils
-import silence.simsool.meowmap.MeowMap.CHAT_PREFIX
 import silence.simsool.meowmap.MeowMap.mc
 
 

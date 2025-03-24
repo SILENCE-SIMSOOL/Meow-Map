@@ -3,8 +3,6 @@ package silence.simsool.meowmap.commands
 import net.minecraft.command.CommandBase
 import net.minecraft.command.ICommandSender
 import silence.simsool.meowmap.MeowMap
-import silence.simsool.meowmap.MeowMap.display
-import silence.simsool.meowmap.config.Config
 
 class Help : CommandBase() {
 

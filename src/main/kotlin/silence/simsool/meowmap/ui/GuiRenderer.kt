@@ -21,11 +21,6 @@ object GuiRenderer {
         titleTicks = ticks
     }
 
-//    fun clearTitle() {
-//        displayTitle = ""
-//        titleTicks = 0
-//    }
-
     @SubscribeEvent
     fun onOverlay(event: RenderGameOverlayEvent.Pre) {
         if (event.type != RenderGameOverlayEvent.ElementType.ALL || !Location.inDungeons) return
