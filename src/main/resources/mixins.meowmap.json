@@ -1,0 +1,10 @@
+{
+  "minVersion": "0.7",
+  "compatibilityLevel": "JAVA_8",
+  "package": "silence.simsool.meowmap.mixins",
+  "refmap": "mixins.${modid}.refmap.json",
+  "client": [
+    "MixinChunk",
+    "MixinNetworkManager"
+  ]
+}
