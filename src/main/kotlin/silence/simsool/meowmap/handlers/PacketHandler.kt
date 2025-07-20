@@ -29,7 +29,7 @@ object PacketHandler {
             }
 
             is S34PacketMaps -> {
-				MapUtils.updateMapData(packet)
+                MapUtils.updateMapData(packet)
             }
         }
     }
