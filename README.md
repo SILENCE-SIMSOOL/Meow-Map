@@ -21,7 +21,12 @@ This mod is integrated with the [Silence Utils](https://github.com/SILENCE-SIMSO
 - You can use command `/map` or `/mm`
 
 ## 💻 How to download?
-- You can [Download](https://github.com/SILENCE-SIMSOOL/Meow-Map/releases/download/1.0.0/MeowMap-1.0.0.jar) Here.
+- You can [Download](https://github.com/SILENCE-SIMSOOL/Meow-Map/releases/download/1.0.0/MeowMap-1.0.0.jar) Here.  
+
+## 🚀 MeowMap Light
+The standard version can be used independently, while the Light version requires the SilenceUtils mod.  
+The Light version leverages the SilenceUtils mod to reduce redundant calculations and improve performance.  
+If you are using the SilenceUtils mod, use the Light version.  
 
 ## ✨ Credits
-- This mod is a modified version of the [FunnyMap](https://github.com/Harry282/FunnyMap) mod.
+- This mod is a modified version of the [FunnyMap](https://github.com/Harry282/FunnyMap) mod.  
