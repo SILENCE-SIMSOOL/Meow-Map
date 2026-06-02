@@ -28,7 +28,7 @@ import kotlin.coroutines.EmptyCoroutineContext
 object MeowMap {
     const val MODID = "meowmap"
     const val NAME = "Meow Map"
-    const val VERSION = "1.0.0"
+    const val VERSION = "1.0.2"
     val CHAT_PREFIX: String
         get() = "§e[§fMeow§e]"
 

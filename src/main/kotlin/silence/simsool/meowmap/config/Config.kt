@@ -460,6 +460,14 @@ object Config : Vigilant(File("./config/SilenceUtils/MeowMap/config.toml"), Meow
     var runInformationDeaths = true
 
     @Property(
+        name = "Show Team Info",
+        type = PropertyType.SWITCH,
+        description = "Shows team member secrets and room times at end of run. Requires a valid API key.",
+        category = "Other Features"
+    )
+    var teamInfo = false
+
+    @Property(
         name = "Mimic Message",
         type = PropertyType.SWITCH,
         description = "Sends party message when a mimic is killed. Detects most instant kills.",

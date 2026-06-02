@@ -22,7 +22,8 @@ object APIUtils {
     }
 
     fun getSecrets(uuid: String): Int {
-        return 0
+        val response = fetch("https://api.tenios.dev/secrets/$uuid") ?: return 0
+        return response.trim().toIntOrNull() ?: 0
     }
 
     fun hasBonusPaulScore(): Boolean {

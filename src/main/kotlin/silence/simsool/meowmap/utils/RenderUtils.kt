@@ -1,5 +1,6 @@
 package silence.simsool.meowmap.utils
 
+import gg.essential.universal.UGraphics;
 import gg.essential.elementa.utils.withAlpha
 import net.minecraft.client.gui.Gui
 import net.minecraft.client.renderer.GlStateManager
@@ -33,19 +34,21 @@ object RenderUtils {
     private val mapIcons = ResourceLocation("meowmap", "marker.png")
 
     fun preDraw() {
-        GlStateManager.enableBlend()
-        GlStateManager.disableCull();
         GlStateManager.disableDepth()
+        GlStateManager.disableCull()
+        GlStateManager.enableBlend()
         GlStateManager.disableLighting()
+        GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA)
+        GlStateManager.alphaFunc(516, 0.01F)
         GlStateManager.disableTexture2D()
-        GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
     }
 
     fun postDraw() {
-        GlStateManager.disableBlend()
-        GlStateManager.enableCull();
-        GlStateManager.enableDepth()
         GlStateManager.enableTexture2D()
+        GlStateManager.disableBlend()
+        GlStateManager.enableDepth()
+        GlStateManager.enableCull()
+        GlStateManager.color(1f, 1f, 1f)
     }
 
     fun addQuadVertices(x: Double, y: Double, w: Double, h: Double) {

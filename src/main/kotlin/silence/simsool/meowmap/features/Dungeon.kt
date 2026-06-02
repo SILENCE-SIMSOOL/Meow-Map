@@ -1,5 +1,6 @@
 package silence.simsool.meowmap.features
 
+import gg.essential.universal.UChat
 import net.minecraft.event.ClickEvent
 import net.minecraftforge.event.world.WorldEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
@@ -9,9 +10,12 @@ import silence.simsool.meowmap.events.ChatEvent
 import silence.simsool.meowmap.features.Dungeon.Info.ended
 import silence.simsool.meowmap.utils.Location
 import silence.simsool.meowmap.utils.Location.inDungeons
+import silence.simsool.meowmap.MeowMap.mc
 import silence.simsool.meowmap.utils.MapUtils
 import silence.simsool.meowmap.utils.TabList
 import silence.simsool.meowmap.utils.Utils.equalsOneOf
+import silence.simsool.meowmap.config.Config
+import kotlin.math.roundToInt
 
 object Dungeon {
 
@@ -29,6 +33,7 @@ object Dungeon {
 
     fun onTick() {
         if (!inDungeons) return
+        if (mc.thePlayer == null) return
 
         if (!MapUtils.calibrated) MapUtils.calibrated = MapUtils.calibrateMap()
 
@@ -46,8 +51,44 @@ object Dungeon {
         }
 
         if (DungeonScan.shouldScan) {
-//            scope.launch { DungeonScan.scan() }
             DungeonScan.scan()
+        }
+
+        if (Info.startTime == 0L) {
+            val playerPosX = mc.thePlayer.posX.toInt()
+            val playerPosZ = mc.thePlayer.posZ.toInt()
+
+            // 플레이어의 위치를 기반으로 11x11 격자 인덱스 계산
+            val xIndex = ((playerPosX - DungeonScan.startX) / 32f).roundToInt() * 2
+            val zIndex = ((playerPosZ - DungeonScan.startZ) / 32f).roundToInt() * 2
+
+            if (xIndex in 0..10 && zIndex in 0..10) {
+                val index = zIndex * 11 + xIndex
+                val tile = Info.dungeonList[index]
+
+                if (tile is Room && tile.uniqueRoom != null) {
+                    // UniqueRoom을 찾았으므로 해당 방의 모든 타일 상태 변경
+                    tile.uniqueRoom!!.tiles.forEach { (uniqueTile, _) ->
+                        if (uniqueTile.state == RoomState.UNDISCOVERED) {
+                            uniqueTile.state = RoomState.DISCOVERED
+                        }
+                    }
+
+                    // 방 주변의 문 상태 변경
+                    val neighbors = listOf(
+                        Info.dungeonList.getOrNull(index + 1), // Right
+                        Info.dungeonList.getOrNull(index - 1), // Left
+                        Info.dungeonList.getOrNull(index + 11),// Down
+                        Info.dungeonList.getOrNull(index - 11) // Up
+                    )
+
+                    neighbors.forEach { neighbor ->
+                        if (neighbor is Door && neighbor.state == RoomState.UNDISCOVERED) {
+                            neighbor.state = RoomState.DISCOVERED
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -60,6 +101,7 @@ object Dungeon {
                 } == true
             }) {
             ended = true
+            if (Config.teamInfo) PlayerTracker.onDungeonEnd()
         }
 
         if (keyGainRegex.any { it.matches(event.packet.chatComponent.formattedText) }) Info.keys++

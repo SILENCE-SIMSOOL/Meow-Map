@@ -1,5 +1,6 @@
 package silence.simsool.meowmap.features
 
+import gg.essential.universal.UChat
 import net.minecraft.client.gui.ScaledResolution
 import net.minecraft.client.renderer.GlStateManager
 import org.lwjgl.opengl.GL11
@@ -7,6 +8,7 @@ import silence.simsool.meowmap.MeowMap.mc
 import silence.simsool.meowmap.config.Config
 import silence.simsool.meowmap.core.DungeonPlayer
 import silence.simsool.meowmap.core.types.*
+import silence.simsool.meowmap.features.Dungeon.Info
 import silence.simsool.meowmap.ui.ScoreElement
 import silence.simsool.meowmap.utils.Location.inBoss
 import silence.simsool.meowmap.utils.MapUtils
